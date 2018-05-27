@@ -1,25 +1,12 @@
-/************************
- *                       *
- *                       *
- *                       *
- *          THE          *
- *       RESONANCE       *
- *          BOX          *
- *                       *
- *                       *
- *      by fabio luis    *
- *                       *
- ************************/
-
-
-
 'use strict'
 
+var maxTicksAfterExplosion = 30;
 
 var animation = true;
 
-var audioFactor = 300;
-var freq1, freq2, freq3, freq4, freq5, freq6, freq7, freq8, freqTriangle;
+var expolesed = false;
+var ticksAfterExplosion;
+var expolosionTime;
 
 var effectController = {
     showCubes: true,
@@ -37,39 +24,8 @@ var effectController = {
 
 };
 
-var head_x;
-var head_y;
-
-function de2ra(degree) {
-    return degree * (Math.PI / 180);
-}
-
-var startTime = Date.now();
-var noise;
-var camFOV = true;
-
-var fov = 70;
-var nfov = fov;
-var lon = 0,
-    nlon = 0,
-    onPointerDownPointerX = 0,
-    onPointerDownLon = 0,
-    lat = 0,
-    nlat = 0,
-    onPointerDownPointerY = 0,
-    onPointerDownLat = 0,
-    phi = 0,
-    theta = 0;
-
 init();
 animate();
-
-var resonanceFreq1 = 1;
-var resonanceFreq2 = 1;
-var resonanceFreq3 = 1;
-var resonanceFreq4 = 1;
-var resonanceFreq5 = 1;
-var resonanceFreq6 = 1;
 
 function init() {
 
@@ -81,8 +37,6 @@ function init() {
         microphone: useMicrophone,
         track: 'audio'
     });*/
-
-    //noise = new ImprovedNoise();
 
     initScene();
 
@@ -139,20 +93,58 @@ function init() {
     //dat.GUI.toggleHide();
 }*/
 
-
-
-function animate() {
-
+function recomposeBlock() {
     var maxRemoveCount = 300;
-    requestAnimationFrame(animate);
     for (var i = 0; i < maxRemoveCount; i++) {
         var prey = Math.floor(Math.random()*ccount);
         cubes.children[prey].visible = !cubes.children[prey].visible;
     }
+}
 
+function booom() {
+    console.log("boom");
+    effectGlitch.enabled = true;
+    for (var i= 0; i< ccount; i++) {
+        var cube = cubes.children[i];
+        cube.position.x = cube.position.x + Math.random()*200-100;
+        cube.position.y = cube.position.y + Math.random()*200-100;
+        cube.position.z = cube.position.z + Math.random()*200-100;
+    }
+    expolesed = true;
+    ticksAfterExplosion = 0;
+}
+
+function restore() {
+    effectGlitch.enabled = false;
+    console.log("restore");
+    for (var i = 0; i < clength / csize; i++) {
+        for (var j = 0; j < cwidth / csize; j++) {
+            for (var k = 0; k < cheight / csize; k++) {
+                var cube = cubes.children[i+j*(clength / csize)+k*(clength / csize)*(cwidth / csize)]
+                cube.position.x = -clength / 2 + i * csize;
+                cube.position.y = -cwidth / 2 + j * csize;
+                cube.position.z = -cheight / 2 + k * csize;
+            }
+        }
+    }
+    expolesed = false;
+}
+
+function animate() {
+    
+    requestAnimationFrame(animate);
+    recomposeBlock();
+    var luck = Math.random();
+    if (expolesed) {
+        ticksAfterExplosion ++;
+    }
+    if (expolesed && ticksAfterExplosion >= maxTicksAfterExplosion) {
+       restore();
+    }
+    if (luck<0.002 && !expolesed) {       
+        booom()
+    }
     //updateFrequencyData();
-
-    //drawSpectrum(10);
 
 /*
     if (animation) {

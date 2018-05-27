@@ -1,20 +1,4 @@
 
-
-    /************************
-    *                       *
-    *                       *
-    *                       *
-    *          THE          *
-    *       RESONANCE       *
-    *          BOX          *
-    *                       *
-    *                       *
-    *      by fabio luis    *
-    *                       *
-    ************************/
-
-
-
 'use strict'
 var camera, scene, renderer, light, lightLeft;
 
@@ -85,7 +69,7 @@ function initLights() {
             }
 
 function onMouseUp(event) {
-    effectGlitch.enabled = true;
+    restore();
 }
 
 function onDocumentMouseMove( event ) {

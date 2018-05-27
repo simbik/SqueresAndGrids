@@ -1,27 +1,10 @@
 
-
-    /************************
-    *                       *
-    *                       *
-    *                       *
-    *          THE          *
-    *       RESONANCE       *
-    *          BOX          *
-    *                       *
-    *                       *
-    *      by fabio luis    *
-    *                       *
-    ************************/
-
-
-
 'use strict'
 
 
 
 var composer;
 var effectGlitch;
-var effectDots;
 var effectRGB;
 
 

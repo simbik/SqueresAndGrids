@@ -1,18 +1,3 @@
-/************************
-*                       *
-*                       *
-*                       *
-*          THE          *
-*       RESONANCE       *
-*          BOX          *
-*                       *
-*                       *
-*      by fabio luis    *
-*     recomposeed by    *
-*       orinichev       *
-************************/
-
-
 'use strict'
 
 // particles
@@ -171,6 +156,7 @@ function initCube() {
     
     scene.add(cubes);
 }
+
 
 function initSphere() {
 
