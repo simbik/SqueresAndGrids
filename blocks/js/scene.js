@@ -39,6 +39,18 @@ function initScene() {
 
 }
 
+function initLogo() {
+var loader = new THREE.SVGLoader();
+    loader.load(
+	'css/main title.svg',
+	// called when the resource is loaded
+	function ( doc ) {
+
+		scene.add( new THREE.SVGObject(doc) );
+
+	});
+}
+
 function initLights() {
 
  

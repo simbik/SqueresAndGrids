@@ -153,7 +153,7 @@ function initCube() {
             }
         }
     }
-    
+    cubes.position.y = 100;
     scene.add(cubes);
 }
 

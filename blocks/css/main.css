@@ -49,6 +49,23 @@ a:hover {
      font-weight: bold;
 }
 
+#otez {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+#logo {
+    position: absolute;
+    margin: 0 auto;
+    width: 300px;
+    
+
+
+    z-index: 100;
+
+}
+
 #info-bottom {
     position: absolute;
     text-align: right;
@@ -139,22 +156,6 @@ article#content p {
        
 }
 
-article#content a.button {
-    margin: 10px 0;
-    padding:15px 20px;
-    border: 1px solid  #53b4df;
-    display: inline-block;
-    cursor: pointer;
-    color: #ffffff; 
-    font-saracurafilmes.oka: 1.1em;
-    background-color: #479bc0;
-    -webkit-transition: all 200ms;
-    -moz-transition: all 200ms;
-    -o-transition: all 200ms;
-    transition: all 200ms;
-    font-weight: bold;
-
-}
 article#content a.button  span{
      color: #fff; font-style: italic;
      font-size: .9em;
