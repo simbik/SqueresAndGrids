@@ -8,8 +8,8 @@ var materials = [],
 var triangles;
 
 // cubes
-var clength = 100, cwidth = 100, cheight = 100;
-var csize = 10;
+var clength = 140, cwidth = 140, cheight = 140;
+var csize = 14;
 var ccount;
 var cube, cubes, cubeLeft, cubeRight, cubeTopIn, cubeBottomIn, cubeTopInRight, cubeBottomInRight;
 
@@ -144,7 +144,7 @@ function initCube() {
     for (var i = 0; i < clength / csize; i++) {
         for (var j = 0; j < cwidth / csize; j++) {
             for (var k = 0; k < cheight / csize; k++) {
-                var cube = new THREE.Mesh(new THREE.BoxGeometry(csize-1, csize-1, csize-1), material);
+                var cube = new THREE.Mesh(new THREE.BoxGeometry(csize-Math.random()*4, csize-Math.random()*4, csize-Math.random()*4), material);
                 cube.position.x = -clength / 2 + i * csize;
                 cube.position.y = -cwidth / 2 + j * csize;
                 cube.position.z = -cheight / 2 + k * csize;

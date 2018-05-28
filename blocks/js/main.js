@@ -1,6 +1,6 @@
 'use strict'
 
-var maxTicksAfterExplosion = 30;
+var maxTicksAfterExplosion = 40;
 
 var animation = true;
 
@@ -141,7 +141,7 @@ function animate() {
     if (expolesed && ticksAfterExplosion >= maxTicksAfterExplosion) {
        restore();
     }
-    if (luck<0.002 && !expolesed) {       
+    if (luck<0.003 && !expolesed) {       
         booom()
     }
     //updateFrequencyData();
