@@ -55,15 +55,16 @@ a:hover {
     text-align: center;
 }
 
+.logo-container {
+	position: absolute;
+	width: 100%;
+}
+
 #logo {
-    position: absolute;
-    margin: 0 auto;
-    width: 300px;
-    
-
-
+    position: relative;
+    margin-top: 400px;
+    width: 600px;
     z-index: 100;
-
 }
 
 #info-bottom {

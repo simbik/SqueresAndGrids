@@ -153,7 +153,7 @@ function initCube() {
             }
         }
     }
-    cubes.position.y = 100;
+    cubes.position.y = 125;
     scene.add(cubes);
 }
 
@@ -391,26 +391,26 @@ function particles() {
 
     parameters = [
         [
-            0x6AE2F7, 5
+            0x6AE2F7, 2
         ],
         [
             0x8DACDC, 2
         ],
         [
-            0xA38ACB, 1
+            0xA38ACB, 2
         ],
         [
             0xCE45A8, 2
         ],
         [
-            0xF90387, 5
+            0xF90387, 2
         ]
     ];
 
     for (i = 0; i < parameters.length; i++) {
 
         materials[i] = new THREE.PointsMaterial({
-            color: parameters[i][0],
+            color: 0xEEEEEE,//parameters[i][0],
             size: parameters[i][1]
         });
 

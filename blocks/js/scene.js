@@ -39,32 +39,20 @@ function initScene() {
 
 }
 
-function initLogo() {
-var loader = new THREE.SVGLoader();
-    loader.load(
-	'css/main title.svg',
-	// called when the resource is loaded
-	function ( doc ) {
-
-		scene.add( new THREE.SVGObject(doc) );
-
-	});
-}
-
 function initLights() {
 
  
-    scene.add( new THREE.AmbientLight( 0x6AE2F7));//0x222222 ) );
+    //scene.add( new THREE.AmbientLight( 0x6AE2F7));//0x222222 ) );
 
     light = new THREE.DirectionalLight( 0xffffff );
-    light.position.set( 200, 200, -200);
+    light.position.set( 200, 200, 200);
     scene.add( light );
 
     lightLeft = new THREE.DirectionalLight( 0xffffff );
     lightLeft.position.set( -200, 200, 200 );
     scene.add( lightLeft );
 
-    scene.fog = new THREE.FogExp2( 0x000000, 0.0007 );
+    //scene.fog = new THREE.FogExp2( 0x000000, 0.0007 );
 
 }
 

@@ -11,7 +11,7 @@ var expolosionTime;
 var effectController = {
     showCubes: true,
     showTriangles: true,
-    effectRGB: 0.0010,
+    effectRGB: 0.002,
     effectDots: 8,
     camFOV: true,
     audioFactor: 300,
@@ -41,6 +41,10 @@ function init() {
     initScene();
 
     initObjects();
+
+    var helper = new THREE.GridHelper( 1000, 50, 0xFF0088, 0xFF0088);
+	helper.position.y = - 200;
+    //scene.add( helper );
 
     initLights();
 
