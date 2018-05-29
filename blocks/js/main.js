@@ -42,8 +42,8 @@ function init() {
 
     initObjects();
 
-    var helper = new THREE.GridHelper( 1000, 50, 0xFF0088, 0xFF0088);
-	helper.position.y = - 200;
+    var helper = new THREE.GridHelper( 1000, 90, 0xFF0088, 0xFF0088);
+	helper.position.y = - 300;
     scene.add( helper );
 
     initLights();
