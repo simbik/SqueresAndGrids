@@ -1,19 +1,4 @@
 
-
-    /************************
-    *                       *
-    *                       *
-    *                       *
-    *          THE          *
-    *       RESONANCE       *
-    *          BOX          *
-    *                       *
-    *                       *
-    *      by fabio luis    *
-    *                       *
-    ************************/
-
-
 #sotd {
     position: fixed;
     right: 0;
@@ -62,8 +47,8 @@ a:hover {
 
 #logo {
     position: relative;
-    margin-top: 400px;
-    width: 600px;
+    top: 150px;
+    width: 1000px;
     z-index: 100;
 }
 

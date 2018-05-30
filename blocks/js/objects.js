@@ -6,10 +6,11 @@ var materials = [],
 
 
 // cubes
-var clength = 140, cwidth = 140, cheight = 140;
-var csize = 14;
+var clength = 150, cwidth = 150, cheight = 150;
+var csize = 15;
 var ccount;
-var  cubes
+var  cubes;
+var cubes2;
 
 
 var maxParticleCount = 300;
@@ -25,13 +26,14 @@ function initObjects() {
 
     particles();
     initCube();
-    initGrid();
+    //initGrid();
 
 }
 
 function initGrid() {
-    var helper = new THREE.GridHelper(1000, 90, 0xFF0088, 0xFF0088);
-    helper.position.y = - 300;
+    var helper = new THREE.GridHelper(2000, 90, 0xFF0088, 0xFF0088);
+    helper.position.x = 1000;
+    helper.geometry.rotateZ( Math.PI / 2 );
     scene.add(helper);
 }
 
@@ -39,8 +41,10 @@ function initCube() {
     cubes = new THREE.Object3D();
 
     var material = new THREE.MeshPhongMaterial({
-        color: 0xffffff,
-        shading: THREE.FlatShading
+        color: 0xFFFFFF,
+        shading: THREE.FlatShading,
+        transparent: true,
+        opacity: 0.1
     });
 
     ccount = clength * cwidth * cheight / (csize * csize * csize);
@@ -56,8 +60,34 @@ function initCube() {
             }
         }
     }
-    cubes.position.y = 125;
+    cubes.position.y = -140;
+    //cubes.position.x = 300;
     scene.add(cubes);
+
+    cubes2 = new THREE.Object3D();
+
+    var material = new THREE.MeshPhongMaterial({
+        color: 0xAAAAAA,
+        shading: THREE.FlatShading
+    });
+
+    ccount = clength * cwidth * cheight / (csize * csize * csize);
+    for (var i = 0; i < clength / csize; i++) {
+        for (var j = 0; j < cwidth / csize; j++) {
+            for (var k = 0; k < cheight / csize; k++) {
+                var cube = new THREE.Mesh(new THREE.BoxGeometry(csize - Math.random() * 4, csize - Math.random() * 4, csize - Math.random() * 4), material);
+                cube.position.x = -clength / 2 + i * csize;
+                cube.position.y = -cwidth / 2 + j * csize;
+                cube.position.z = -cheight / 2 + k * csize;
+
+                cubes2.add(cube);
+            }
+        }
+    }
+    cubes2.position.y = -90;
+    cubes2.position.x = -300;
+
+    //scene.add(cubes2);
 }
 
 function particles() {
@@ -96,7 +126,7 @@ function particles() {
     for (i = 0; i < parameters.length; i++) {
 
         materials[i] = new THREE.PointsMaterial({
-            color: 0xEEEEEE,//parameters[i][0],
+            color: 0xAAAAAA,//parameters[i][0],
             size: parameters[i][1]
         });
 

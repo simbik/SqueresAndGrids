@@ -29,7 +29,7 @@ function initScene() {
     // Scene
 
     scene = new THREE.Scene();
-    //scene.fog = new THREE.Fog( 0xFFFFFF, 1, 1000 );
+    scene.fog = new THREE.Fog( 0xFFFFFF, 1, 2000 );
 
     document.addEventListener('mousemove', onDocumentMouseMove, false);
     document.addEventListener('touchstart', onDocumentTouchStart, false);
@@ -42,15 +42,18 @@ function initScene() {
 function initLights() {
 
 
-    //scene.add( new THREE.AmbientLight( 0x6AE2F7));//0x222222 ) );
+    scene.add( new THREE.AmbientLight( 0x222222 ) );
 
     light = new THREE.DirectionalLight(0xffffff);
     light.position.set(200, 200, 200);
     scene.add(light);
+    /*light = new THREE.DirectionalLight(0xffffff);
+    light.position.set(200, 200, 200);
+    scene.add(light);
 
-    lightLeft = new THREE.DirectionalLight(0xffffff);
+    lightLeft = new THREE.DirectionalLight(0x999999);
     lightLeft.position.set(-200, 200, 200);
-    scene.add(lightLeft);
+    scene.add(lightLeft);*/
 
     //scene.fog = new THREE.FogExp2( 0x000000, 0.0007 );
 
