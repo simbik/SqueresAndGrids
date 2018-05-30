@@ -5,102 +5,102 @@ var camera, scene, renderer, light, lightLeft;
 var mouseX = 0, mouseY = 0;
 
 var windowHalfX = window.innerWidth / 2;
-var windowHalfY = window.innerHeight / 2;    
+var windowHalfY = window.innerHeight / 2;
 
 function initScene() {
 
 
-	renderer = new THREE.WebGLRenderer({ antialias: true });
-	
-
-	renderer.setPixelRatio( window.devicePixelRatio );
-	renderer.setSize( window.innerWidth, window.innerHeight );
-
-	document.getElementById('container').appendChild( renderer.domElement );
+    renderer = new THREE.WebGLRenderer({ antialias: true });
 
 
-	// Camera
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(window.innerWidth, window.innerHeight);
 
-	camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 1500 );
-	camera.position.z = 300;
-    camera.position.y  = 6000;
-    camera.position.x  = 6000;
+    document.getElementById('container').appendChild(renderer.domElement);
 
-	// Scene
+
+    // Camera
+
+    camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 1500);
+    camera.position.z = 300;
+    camera.position.y = 6000;
+    camera.position.x = 6000;
+
+    // Scene
 
     scene = new THREE.Scene();
     //scene.fog = new THREE.Fog( 0xFFFFFF, 1, 1000 );
 
-    document.addEventListener( 'mousemove', onDocumentMouseMove, false );
-    document.addEventListener( 'touchstart', onDocumentTouchStart, false );
-    document.addEventListener( 'touchmove', onDocumentTouchMove, false );
-    document.addEventListener( 'mouseup', onMouseUp, false);
-    window.addEventListener( 'resize', onWindowResize, false );
+    document.addEventListener('mousemove', onDocumentMouseMove, false);
+    document.addEventListener('touchstart', onDocumentTouchStart, false);
+    document.addEventListener('touchmove', onDocumentTouchMove, false);
+    document.addEventListener('mouseup', onMouseUp, false);
+    window.addEventListener('resize', onWindowResize, false);
 
 }
 
 function initLights() {
 
- 
+
     //scene.add( new THREE.AmbientLight( 0x6AE2F7));//0x222222 ) );
 
-    light = new THREE.DirectionalLight( 0xffffff );
-    light.position.set( 200, 200, 200);
-    scene.add( light );
+    light = new THREE.DirectionalLight(0xffffff);
+    light.position.set(200, 200, 200);
+    scene.add(light);
 
-    lightLeft = new THREE.DirectionalLight( 0xffffff );
-    lightLeft.position.set( -200, 200, 200 );
-    scene.add( lightLeft );
+    lightLeft = new THREE.DirectionalLight(0xffffff);
+    lightLeft.position.set(-200, 200, 200);
+    scene.add(lightLeft);
 
     //scene.fog = new THREE.FogExp2( 0x000000, 0.0007 );
 
 }
 
- function onWindowResize() {
+function onWindowResize() {
 
-                windowHalfX = window.innerWidth / 2;
-                windowHalfY = window.innerHeight / 2;
+    windowHalfX = window.innerWidth / 2;
+    windowHalfY = window.innerHeight / 2;
 
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
 
-                renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setSize(window.innerWidth, window.innerHeight);
 
-            }
+}
 
 function onMouseUp(event) {
     restore();
 }
 
-function onDocumentMouseMove( event ) {
+function onDocumentMouseMove(event) {
 
-                mouseX = event.clientX - windowHalfX;
-                mouseY = event.clientY - windowHalfY;
+    mouseX = event.clientX - windowHalfX;
+    mouseY = event.clientY - windowHalfY;
 
-            }
+}
 
-            function onDocumentTouchStart( event ) {
+function onDocumentTouchStart(event) {
 
-                if ( event.touches.length === 1 ) {
+    if (event.touches.length === 1) {
 
-                    event.preventDefault();
+        event.preventDefault();
 
-                    mouseX = event.touches[ 0 ].pageX - windowHalfX;
-                    mouseY = event.touches[ 0 ].pageY - windowHalfY;
+        mouseX = event.touches[0].pageX - windowHalfX;
+        mouseY = event.touches[0].pageY - windowHalfY;
 
-                }
+    }
 
-            }
+}
 
-            function onDocumentTouchMove( event ) {
+function onDocumentTouchMove(event) {
 
-                if ( event.touches.length === 1 ) {
+    if (event.touches.length === 1) {
 
-                    event.preventDefault();
+        event.preventDefault();
 
-                    mouseX = event.touches[ 0 ].pageX - windowHalfX;
-                    mouseY = event.touches[ 0 ].pageY - windowHalfY;
+        mouseX = event.touches[0].pageX - windowHalfX;
+        mouseY = event.touches[0].pageY - windowHalfY;
 
-                }
+    }
 
-            }
+}
